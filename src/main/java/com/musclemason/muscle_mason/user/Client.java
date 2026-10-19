@@ -1,5 +1,7 @@
 package com.musclemason.muscle_mason.user;
 
+import com.musclemason.muscle_mason.nutrition.FoodItem;
+
 public class Client extends Person {
 
     private double weight;

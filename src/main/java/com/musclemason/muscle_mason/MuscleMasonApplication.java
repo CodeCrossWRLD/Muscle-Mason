@@ -13,7 +13,7 @@ public class MuscleMasonApplication {
     public static void main(String[] args) {
         SpringApplication.run(MuscleMasonApplication.class, args);
 
-        log.info("Application Started Successfully!");
+        log.info("Application Started Successfully!!");
     }
 
 }

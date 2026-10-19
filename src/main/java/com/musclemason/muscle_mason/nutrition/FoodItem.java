@@ -10,7 +10,7 @@ public class FoodItem {
     private double calories;
     private double fats;
     private double proteins;
-    private double totalSugars;
+    private double sugars;
     private double sodium;
     private double carbohydrates;
     private double servingSize;
@@ -18,14 +18,13 @@ public class FoodItem {
     //@Enumerated(EnumType.STRING)
     private DietaryTag tag;
 
-    public FoodItem(Long id, String itemName, double calories, double fats, double proteins,
+    public FoodItem(String itemName, double calories, double fats, double proteins,
                     double totalSugars, double sodium, double carbohydrates, double servingSize) {
-        this.id = id;
         this.itemName = itemName;
         this.calories = calories;
         this.fats = fats;
         this.proteins = proteins;
-        this.totalSugars = totalSugars;
+        this.sugars = sugars;
         this.sodium = sodium;
         this.carbohydrates = carbohydrates;
         this.servingSize = servingSize;
@@ -36,7 +35,7 @@ public class FoodItem {
     public double getCalories() { return calories; }
     public double getFats() { return fats; }
     public double getProteins() { return proteins; }
-    public double getTotalSugars() { return totalSugars; }
+    public double getSugars() { return sugars; }
     public double getSodium() { return sodium; }
     public double getCarbohydrates() { return carbohydrates; }
     public double getServingSize() { return servingSize; }
@@ -46,9 +45,19 @@ public class FoodItem {
     public void setCalories(double calories) { this.calories = calories; }
     public void setFats(double fats) { this.fats = fats; }
     public void setProteins(double proteins) { this.proteins = proteins; }
-    public void setTotalSugars(double totalSugars) { this.totalSugars = totalSugars; }
+    public void setTotalSugars(double sugars) { this.sugars = sugars; }
     public void setSodium(double sodium) { this.sodium = sodium; }
     public void setCarbohydrates(double carbohydrates) { this.carbohydrates = carbohydrates; }
     public void setServingSize(double servingSize) { this.servingSize = servingSize; }
+
+    public FoodItem scalePortion(double multiplier) {
+        return new FoodItem(
+                this.itemName, this.calories * multiplier, this.fats * multiplier,
+                this.proteins * multiplier, this.sugars * multiplier,
+                this.sodium * multiplier, this.carbohydrates * multiplier,
+                this.servingSize * multiplier
+        );
+
+    }
 
 }
