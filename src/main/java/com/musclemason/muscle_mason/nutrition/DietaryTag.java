@@ -4,7 +4,7 @@ public enum DietaryTag {
     VEGETARIAN,
     CARNIVORE,
     VEGAN,
-    OMNIVORe,
+    OMNIVORE,
     KETO,
     GLUTEN_FREE
 }

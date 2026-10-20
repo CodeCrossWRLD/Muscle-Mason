@@ -1,8 +1,6 @@
 package com.musclemason.muscle_mason.user;
 
-import com.musclemason.muscle_mason.nutrition.FoodItem;
-
-public class Client extends Person {
+public class Member extends Person {
 
     private double weight;
     private double height;
@@ -11,7 +9,7 @@ public class Client extends Person {
     private enum fitnessGoal { Cut, Bulk, Maintain }
     private enum activityLevel { Low, Medium, High }
 
-    public Client(String firstName, String lastName, String phoneNumber, String email,
+    public Member(String firstName, String lastName, String phoneNumber, String email,
                   double weight, double height, String gender, String accountID) {
         super(firstName, lastName, phoneNumber, email);
         this.weight = weight;
@@ -20,7 +18,7 @@ public class Client extends Person {
         this.gender = gender;
     }
 
-    public Client(String accountID) {
+    public Member(String accountID) {
         super("", "","","");
         this.accountID = accountID;
         this.weight = 0.0;
@@ -28,7 +26,7 @@ public class Client extends Person {
         this.gender = "";
     }
 
-    public Client() {
+    public Member() {
         super("","","","");
         this.accountID = "";
         this.weight = 0.0;

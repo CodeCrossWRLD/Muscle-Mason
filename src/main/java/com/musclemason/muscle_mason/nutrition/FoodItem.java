@@ -2,25 +2,37 @@ package com.musclemason.muscle_mason.nutrition;
 
 //import jakarta.persistence.*;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
+
 public class FoodItem {
 
+    private static Long idCounter = 1L;
     private Long id;
-
+    @NotBlank
     private String itemName;
+    @PositiveOrZero(message = "Calories must be at 0 or above.")
     private double calories;
+    @PositiveOrZero(message = "Fat must be at 0 or above.")
     private double fats;
+    @PositiveOrZero(message = "Protein must be at 0 or above.")
     private double proteins;
+    @PositiveOrZero(message = "Sugar must be at 0 or above.")
     private double sugars;
+    @PositiveOrZero(message = "Sodium must be at 0 or above.")
     private double sodium;
+    @PositiveOrZero(message = "Carbohydrates must be at 0 or above.")
     private double carbohydrates;
+    @PositiveOrZero(message = "Serving size must be at 0 or above.")
     private double servingSize;
 
     //@Enumerated(EnumType.STRING)
     private DietaryTag tag;
 
     public FoodItem(String itemName, double calories, double fats, double proteins,
-                    double totalSugars, double sodium, double carbohydrates, double servingSize) {
+                    double sugars, double sodium, double carbohydrates, double servingSize, DietaryTag tag) {
         this.itemName = itemName;
+        this.id = idCounter++;
         this.calories = calories;
         this.fats = fats;
         this.proteins = proteins;
@@ -28,6 +40,7 @@ public class FoodItem {
         this.sodium = sodium;
         this.carbohydrates = carbohydrates;
         this.servingSize = servingSize;
+        this.tag = tag;
     }
 
     public Long getID() { return id; }
@@ -55,7 +68,7 @@ public class FoodItem {
                 this.itemName, this.calories * multiplier, this.fats * multiplier,
                 this.proteins * multiplier, this.sugars * multiplier,
                 this.sodium * multiplier, this.carbohydrates * multiplier,
-                this.servingSize * multiplier
+                this.servingSize * multiplier, this.tag
         );
 
     }

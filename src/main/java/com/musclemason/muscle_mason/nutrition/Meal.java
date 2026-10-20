@@ -11,14 +11,12 @@ public class Meal {
 
     public Meal(String MealName) {
         this.MealName = MealName;
+        this.mealType = mealType;
     }
 
     public String getMealName() { return MealName; }
-
     public void setMealName() { this.MealName = MealName; }
-
-    public void addFoodItem(FoodItem item) {
-    }
+    public MealType getMealType() { return mealType; }
 
     public double getTotalCalories() {
         double totalCalories = 0;
